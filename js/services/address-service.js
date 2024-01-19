@@ -15,4 +15,16 @@ export async function findByCep(cep) {
   return address;
 }
 
-//const  result = await requestService.getJson('https://viacep.com.br/ws/01001000/json/');
+export function getErrors(address){
+    const errors = {};
+
+    if (!address.cep || address.cep == ""){
+        errors.cep = "Campo requerido";
+    }
+    if (!address.number || address.number == ""){
+        errors.number = "Campo requerido";
+    }
+
+
+    return errors;
+}
